@@ -54,6 +54,16 @@ ln -s ~/zproj/zproj ~/.local/bin/zproj
 zproj --version
 ```
 
+### Nix / NixOS
+
+```bash
+# Run without installing
+nix run github:khajavi/zproj
+
+# Add to a flake
+zproj = { url = "github:khajavi/zproj"; };   # then zproj.packages.${system}.default
+```
+
 ## Quick start
 
 ```bash

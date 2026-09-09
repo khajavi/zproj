@@ -4,7 +4,7 @@ set -euo pipefail
 # ─── Constants ────────────────────────────────────────────────────────────────
 
 readonly SCRIPT_NAME="zproj"
-readonly VERSION="4.18.1"
+readonly VERSION="4.18.2"
 readonly BARE_DIR=".bare"
 readonly GIT_POINTER=".git"
 readonly MIN_GIT_VERSION="2.5.0"
@@ -448,7 +448,7 @@ _tmux_config_path() {
 # Return mtime of $1 as epoch seconds. Tries macOS stat first, falls back to GNU.
 _notify_stat_mtime() {
   local file="$1"
-  stat -f %m "$file" 2>/dev/null || stat -c %Y "$file" 2>/dev/null || echo 0
+  stat -c %Y "$file" 2>/dev/null || stat -f %m "$file" 2>/dev/null || echo 0
 }
 
 # Debounce per pane: return 0 to proceed, 1 to suppress.
